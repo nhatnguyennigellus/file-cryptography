@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Accounts>
+  <Account Email="brightsun_nigellus4492@yahoo.com.vn" Fullname="Nhat Nguyen" Birthdate="04.04.1992" Address="15/5 Nguyen Du F7 GV" Phone="01212425218" Salt="�'�U[�C" Hash="sYoqTeCn0yeIB+5ubx8pTrsnrFVbjEM=">
+    <PublicKey>
+      <RSAKeyValue>
+        <Modulus>w18dHx7WOt/YcufgnNFEykaNuJl2UsLsOa3GzcJvtF1OdQCVS2CHBWv00xBG6qxvMXN4Qax5XcLwqZ8X3L6aOi33zi6+ZONholL0t+sZldTzJXSp9tPBqmCN9umaaeyDmc4gAHiIOD+wab3BXy3eujTba6ehdZyRYWZU60F0vS0=</Modulus>
+        <Exponent>AQAB</Exponent>
+      </RSAKeyValue>
+    </PublicKey>
+    <PrivateKey>
+      <RSAKeyValue>
+        <Modulus>w18dHx7WOt/YcufgnNFEykaNuJl2UsLsOa3GzcJvtF1OdQCVS2CHBWv00xBG6qxvMXN4Qax5XcLwqZ8X3L6aOi33zi6+ZONholL0t+sZldTzJXSp9tPBqmCN9umaaeyDmc4gAHiIOD+wab3BXy3eujTba6ehdZyRYWZU60F0vS0=</Modulus>
+        <Exponent>AQAB</Exponent>
+        <P>392bYeNX6gJUAhlNLktOvItaPcIUNdAqvHnvz3tXitj4eYXL+XU4+T2Bti1dTSIQHZeb118cofB06XLf6rLKVQ==</P>
+        <Q>32pu71VSHbVHiIptxPIFM6n0pdw1gnFpPAbpvGnJhrL912OEVVxF0/mTujNxYZu4Kn5ZhCuaBcVLDmBoOReveQ==</Q>
+        <DP>G48ohdB7Di/jL671tXFH7CYroda2rjlGSZWpVB2XFVzImg1Cox8vOF++DDNhfRFocnwrj0QCPl1fxy2BK19/UQ==</DP>
+        <DQ>ZCHy2IfYBwKhrfvFGPkUBcTNpqzcursT3FiI1+5d6WY9yRSMUinKDiiU4mZ+Ea5WS41Xl5pnLODxM99Xtwb7mQ==</DQ>
+        <InverseQ>lT6FDwprGctIuGQbCoUr/CLwXHPdkNAw8o4C+uiYK6JTIpqJhfOb/Fw6Z8dGwjrrdUeBd3/bu68HRBrfCXpqhg==</InverseQ>
+        <D>AUahvg5Jf+DuXPG+ucd0F44WZto5t5imSkokPjvC1v61AHacgv2CZDqsQqSckfPGViBW7LbfpAkd4T20vjBQeYXfh/vuX6YHmju8q6pCuftwcfJIjTzcvUi4rTRrdqpXa63pqYTcOKHSwQYwV0E9SdcuAvPEQkL/HDLIjfQnpIE=</D>
+      </RSAKeyValue>
+    </PrivateKey>
+  </Account>
+  <Account Email="brightsunnigellus@gmail.com" Fullname="Nhat Nguyen" Birthdate="04.04.1992" Address="15/5 Nguyen Du Phuong 7 Go Vap" Phone="01212425218" Salt="&amp;�&#x11;bK&#x1D;X" Hash="17HdVtmlAjNwm2FtNhLCYybKEWJLHVg=">
+    <PublicKey>
+      <RSAKeyValue>
+        <Modulus>mm0BdmALU6ZGXeOefJKZctcTGXD/METrU9kfVQc1rZqH7/UCB1rxBMTeykFNBHkO0ik4wQn7RHFFLWjQfBDm6PMmtOXz60r7</Modulus>
+        <Exponent>AQAB</Exponent>
+      </RSAKeyValue>
+    </PublicKey>
+    <PrivateKey>
+      <RSAKeyValue>
+        <Modulus>mm0BdmALU6ZGXeOefJKZctcTGXD/METrU9kfVQc1rZqH7/UCB1rxBMTeykFNBHkO0ik4wQn7RHFFLWjQfBDm6PMmtOXz60r7</Modulus>
+        <Exponent>AQAB</Exponent>
+        <P>xx4TAQynreLm5OUL6PxDNk6UJ0uLbXIgTxZBBPZw3RW2gH+v</P>
+        <Q>xoqGa3Pu5R7IzKnd6RVEcAMXAdHRxmK9yPENLSKXF3wXqhB1</Q>
+        <DP>c4Oa+szgqhwsXzYRxsQyKdtET9eft4qx+6+pYLunllr2WW25</DP>
+        <DQ>a4b+whdp3QFNMzsUinYQOLITtdKTUGSN8NRMlJNVTUzR7DM5</DQ>
+        <InverseQ>xBQS7ufQwYWRp3EHjrWykd9IObipgwu2EfGjT/NHNVgC6Y/X</InverseQ>
+        <D>hAKbNW51QFTr4mcqnKNVue5RzXXjMIg6A7ugJTe8k2N+wYpXlbD3YJs+gLxI6RBwANw/8e+Ny063B4uJsirh+a4Mi61jeJZB</D>
+      </RSAKeyValue>
+    </PrivateKey>
+  </Account>
+</Accounts>
