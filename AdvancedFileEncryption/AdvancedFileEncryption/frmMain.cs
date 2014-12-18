@@ -123,7 +123,7 @@ namespace AdvancedFileEncryption
 
             if (acc.isAuthenticated(acc.Email, txtOldPass.Text))
             {
-                if (acc.changePassphrase(txtNewPass.Text))
+                if (acc.changePassphrase(txtNewPass.Text, txtOldPass.Text))
                 {
                     MessageBox.Show("Passphrase changed successfully!");
                 }
@@ -134,5 +134,46 @@ namespace AdvancedFileEncryption
                 MessageBox.Show("Wrong password!");
             }
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mes = "Đồ án Mã hóa thông tin và ứng dụng";
+            mes += "\nNguyễn Minh Nhật - 1012278";
+
+            MessageBox.Show(mes, "About", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void exportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 frmVerify = new Form1(acc.Email);
+            frmVerify.passControl = new Form1.PassControl(acc.exportKeyInfo);
+            frmVerify.Show();
+            
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            importKeyInfoDialog1.Title = "Import key info";
+
+            DialogResult dlgRes = importKeyInfoDialog1.ShowDialog();
+            if (dlgRes == DialogResult.OK)
+            {
+                if (acc.import(importKeyInfoDialog1.FileName))
+                {
+                    MessageBox.Show("Import successfully!");
+                }
+                else
+                {
+                    MessageBox.Show("Import failed");
+                }
+            }
+
+        }
+
     }
 }

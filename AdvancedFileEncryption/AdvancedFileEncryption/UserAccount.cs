@@ -39,7 +39,8 @@ namespace AdvancedFileEncryption
             XmlElement elePublic = doc.CreateElement("PublicKey");
             elePublic.InnerXml = publicKeyXML;
             XmlElement elePrivate = doc.CreateElement("PrivateKey");
-            elePrivate.InnerXml = privateKeyXML;
+
+            elePrivate.InnerXml = encryptPrivateKey(privateKeyXML, Passphrase);
 
 
             eleNewAcc.AppendChild(elePublic);
@@ -122,7 +123,7 @@ namespace AdvancedFileEncryption
             }
         }
 
-        public bool changePassphrase(string passphrase)
+        public bool changePassphrase(string NewPassphrase, string OldPassphrase)
         {
             try
             {
@@ -134,7 +135,12 @@ namespace AdvancedFileEncryption
                 saltBytes = generateSalt();
 
                 eleAcc.Attributes["Salt"].Value = Encoding.UTF8.GetString(saltBytes);
-                eleAcc.Attributes["Hash"].Value = generateHash(passphrase, saltBytes);
+                eleAcc.Attributes["Hash"].Value = generateHash(NewPassphrase, saltBytes);
+
+                string privateKey = decryptPrivateKey
+                    (doc.SelectSingleNode(Xpath + "/PrivateKey").InnerText, OldPassphrase);
+                doc.SelectSingleNode(Xpath + "/PrivateKey").InnerText = 
+                    encryptPrivateKey(privateKey, NewPassphrase);
 
                 doc.Save(new XMLInit().GetFileName());
                 return true;
@@ -172,6 +178,122 @@ namespace AdvancedFileEncryption
             }
 
             return saltBytes;
+        }
+
+        public bool exportKeyInfo(string result, string email, string passphrase, string saveTo)
+        {
+            if (result == "OK")
+            {
+
+                try
+                {
+                    string Xpath = "/Accounts/Account[contains(@Email, '"
+                            + email + "')]";
+
+                    XmlElement eleAcc = (XmlElement)doc.SelectSingleNode(Xpath);
+                    string fileName = email.Substring(0, email.IndexOf('@'));
+                    XmlTextWriter writer = new XmlTextWriter
+                        (saveTo, Encoding.UTF8);
+
+                    writer.WriteStartDocument(true);
+                    writer.Formatting = Formatting.Indented;
+                    writer.Indentation = 2;
+                    writer.WriteStartElement("Account");
+                    writer.WriteEndElement();
+                    writer.WriteEndDocument();
+                    writer.Close();
+
+                    XmlDocument docExport = new XmlDocument();
+                    docExport.Load(saveTo);
+                    XmlElement eleExp = (XmlElement)docExport.SelectSingleNode("/Account");
+                    eleExp.SetAttribute("Email", email);
+                    eleExp.SetAttribute("Fullname", eleAcc.GetAttribute("Fullname"));
+                    eleExp.SetAttribute("Address", eleAcc.GetAttribute("Address"));
+                    eleExp.SetAttribute("Phone", eleAcc.GetAttribute("Phone"));
+                    eleExp.SetAttribute("Birthdate", eleAcc.GetAttribute("Birthdate"));
+                    eleExp.SetAttribute("Hash", eleAcc.GetAttribute("Hash"));
+                    eleExp.SetAttribute("Salt", eleAcc.GetAttribute("Salt"));
+
+                    XmlElement elePublic = docExport.CreateElement("PublicKey");
+                    foreach (XmlNode node in doc.SelectSingleNode(Xpath + "/PublicKey/RSAKeyValue")
+                        .ChildNodes)
+                    {
+                        XmlElement eleChild = docExport.CreateElement(node.Name);
+                        eleChild.InnerText = node.InnerText;
+                        elePublic.AppendChild(eleChild);
+                    }
+                    XmlElement elePrivate = docExport.CreateElement("PrivateKey");
+                    //foreach (XmlNode node in doc.SelectSingleNode(Xpath + "/PrivateKey/RSAKeyValue")
+                    //    .ChildNodes)
+                    {
+                        //XmlElement eleChild = docExport.CreateElement(node.Name);
+                        elePrivate.InnerText = doc.SelectSingleNode(Xpath + "/PrivateKey").InnerText;
+                    }
+
+
+                    eleExp.AppendChild(elePublic);
+                    eleExp.AppendChild(elePrivate);
+
+                    docExport.Save(saveTo);
+                    return true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                
+            } return false;
+        }
+
+        public bool import(string fileName)
+        {
+            try
+            {
+                XmlDocument docImport = new XmlDocument();
+                docImport.Load(fileName);
+
+                XmlElement eleImport = (XmlElement)docImport.SelectSingleNode("/Account");
+
+                string Xpath = "/Accounts";
+                XmlElement eleAccList = (XmlElement)doc.SelectSingleNode(Xpath);
+                XmlElement eleNewAcc = doc.CreateElement("Account");
+                eleNewAcc.SetAttribute("Email", eleImport.GetAttribute("Email"));
+                eleNewAcc.SetAttribute("Fullname", eleImport.GetAttribute("Fullname"));
+                eleNewAcc.SetAttribute("Birthdate", eleImport.GetAttribute("Birthdate"));
+                eleNewAcc.SetAttribute("Address", eleImport.GetAttribute("Address"));
+                eleNewAcc.SetAttribute("Phone", eleImport.GetAttribute("Phone"));
+                eleNewAcc.SetAttribute("Hash", eleImport.GetAttribute("Hash"));
+                eleNewAcc.SetAttribute("Salt", eleImport.GetAttribute("Salt"));
+                XmlElement elePublicImport = (XmlElement)docImport.SelectSingleNode("/Account/PublicKey");
+                XmlElement elePublic = (XmlElement)doc.CreateElement("PublicKey");
+                XmlElement eleRSAKeyValue = (XmlElement)doc.CreateElement("RSAKeyValue");
+                foreach (XmlNode node in elePublicImport.ChildNodes)
+                {
+                    XmlElement eleChild = doc.CreateElement(node.Name);
+                    eleChild.InnerText = node.InnerText;
+                    eleRSAKeyValue.AppendChild(eleChild);
+                }
+                elePublic.AppendChild(eleRSAKeyValue);
+
+                XmlElement elePrivateImport = (XmlElement)docImport.SelectSingleNode("/Account/PrivateKey");
+                string privateKey = elePrivateImport.InnerText;
+                XmlElement elePrivate = (XmlElement)doc.CreateElement("PrivateKey");
+                elePrivate.InnerText = privateKey;
+
+                eleNewAcc.AppendChild(elePublic);
+                eleNewAcc.AppendChild(elePrivate);
+                eleAccList.AppendChild(eleNewAcc);
+
+                doc.Save(new XMLInit().GetFileName());
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+            return false;
         }
 
         public string generateHash(string plainText, byte[] saltBytes)
@@ -225,33 +347,8 @@ namespace AdvancedFileEncryption
             // We must know size of hash (without salt).
             int hashSizeInBits, hashSizeInBytes;
 
-            //// Make sure that hashing algorithm name is specified.
-            //if (hashAlgorithm == null)
-            //    hashAlgorithm = "";
-
-            //// Size of hash is based on the specified algorithm.
-            //switch (hashAlgorithm.ToUpper())
-            //{
-            //    case "SHA1":
-            //        hashSizeInBits = 160;
-            //        break;
-
-            //    case "SHA256":
-            //        hashSizeInBits = 256;
-            //        break;
-
-            //    case "SHA384":
-            //        hashSizeInBits = 384;
-            //        break;
-
-            //    case "SHA512":
-            //        hashSizeInBits = 512;
-            //        break;
-
-            //    default: // Must be MD5
+            // MD5 Algorithm
             hashSizeInBits = 128;
-            //        break;
-            //}
 
             // Convert size of hash from bits to bytes.
             hashSizeInBytes = hashSizeInBits / 8;
@@ -275,6 +372,56 @@ namespace AdvancedFileEncryption
             // If the computed hash matches the specified hash,
             // the plain text value must be correct.
             return (hashValue == expectedHashString);
+        }
+
+        public string encryptPrivateKey(string privKey, string passphrase)
+        {
+            byte[] keyArray;
+            byte[] toEncryptArray = UTF8Encoding.UTF8.GetBytes(privKey);
+
+            // If hashing use get hashcode regards to your key
+            
+            MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+            keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(passphrase));
+            hashmd5.Clear();
+
+            // Set the secret key for the tripleDES algorithm
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            // Transform the specified region of bytes array to resultArray
+            ICryptoTransform cTransform = tdes.CreateEncryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            tdes.Clear();
+
+            // Return the encrypted data into unreadable string format
+            return Convert.ToBase64String(resultArray, 0, resultArray.Length);
+        }
+
+        public string decryptPrivateKey(string cipherString, string passphrase)
+        {
+            byte[] keyArray;
+            byte[] toEncryptArray = Convert.FromBase64String(cipherString.Replace(' ', '+'));
+
+            // If hashing was used get the hash code with regards to your key
+            MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
+            keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(passphrase));
+            hashmd5.Clear();
+            
+            // Set the secret key for the tripleDES algorithm
+            TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
+            tdes.Key = keyArray;
+            tdes.Mode = CipherMode.ECB;
+            tdes.Padding = PaddingMode.PKCS7;
+
+            ICryptoTransform cTransform = tdes.CreateDecryptor();
+            byte[] resultArray = cTransform.TransformFinalBlock(toEncryptArray, 0, toEncryptArray.Length);
+            tdes.Clear();
+
+            // Return the Clear decrypted TEXT
+            return UTF8Encoding.UTF8.GetString(resultArray);
         }
     }
 }

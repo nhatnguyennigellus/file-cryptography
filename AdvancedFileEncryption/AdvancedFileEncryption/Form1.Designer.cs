@@ -34,6 +34,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnToRegister = new System.Windows.Forms.Button();
+            this.exportKeyInfoDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // label1
@@ -69,11 +70,11 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(100, 20);
             this.txtPass.TabIndex = 1;
-            this.txtPass.Text = "123456789";
+            this.txtPass.Text = "nigel4492";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(107, 138);
+            this.btnLogin.Location = new System.Drawing.Point(107, 128);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 2;
@@ -83,7 +84,7 @@
             // 
             // btnToRegister
             // 
-            this.btnToRegister.Location = new System.Drawing.Point(207, 138);
+            this.btnToRegister.Location = new System.Drawing.Point(222, 128);
             this.btnToRegister.Name = "btnToRegister";
             this.btnToRegister.Size = new System.Drawing.Size(75, 23);
             this.btnToRegister.TabIndex = 3;
@@ -95,7 +96,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 261);
+            this.ClientSize = new System.Drawing.Size(411, 187);
             this.Controls.Add(this.btnToRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
@@ -117,6 +118,7 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnToRegister;
+        private System.Windows.Forms.SaveFileDialog exportKeyInfoDialog1;
     }
 }
 

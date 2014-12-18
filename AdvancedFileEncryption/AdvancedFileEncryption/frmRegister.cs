@@ -90,19 +90,19 @@ namespace AdvancedFileEncryption
             acc.Address = address;
             acc.Passphrase = pass;
 
-            MessageBox.Show("Registered successfully!");
+            MessageBox.Show("Registered and generated key-pair successfully!");
             int keySize = Int32.Parse(cbKeySize.Text);
 
             RSACryptoServiceProvider generateAlg = new RSACryptoServiceProvider(keySize);
 
             RSAParameters publicKeyGen = generateAlg.ExportParameters(false);
             RSAParameters privateKeyGen = generateAlg.ExportParameters(true);
-
+            /*
             MessageBox.Show("Public Key: " + BitConverter.ToString(publicKeyGen.Exponent)
                 + "\nPrivate Key: " + BitConverter.ToString(privateKeyGen.D)
                 + "\nN: " + BitConverter.ToString(privateKeyGen.Modulus)
                 + "\nXML Public: " + generateAlg.ToXmlString(false));
-
+            */
             acc.register(generateAlg.ToXmlString(false), generateAlg.ToXmlString(true));
             this.Close();
             frmLogin.Show();
