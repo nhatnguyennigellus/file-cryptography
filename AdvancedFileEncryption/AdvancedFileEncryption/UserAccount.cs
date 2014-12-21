@@ -81,6 +81,26 @@ namespace AdvancedFileEncryption
             return acc;
         }
 
+        public string getPublicKeyByEmail(string email)
+        {
+            string Xpath = "/Accounts/Account[contains(@Email, '"
+                + email + "')]/PublicKey/RSAKeyValue/Modulus";
+
+            XmlElement elePubKey = (XmlElement)doc.SelectSingleNode(Xpath);
+
+            return elePubKey.InnerText;
+        }
+
+        public string getPrivateKeyByEmail(string email)
+        {
+            string Xpath = "/Accounts/Account[contains(@Email, '"
+                + email + "')]/PrivateKey";
+
+            XmlElement elePrivKey = (XmlElement)doc.SelectSingleNode(Xpath);
+
+            return elePrivKey.InnerText;
+        }
+
         public bool isAuthenticated(string email, string passphrase)
         {
             string Xpath = "/Accounts/Account[contains(@Email, '"
@@ -223,13 +243,8 @@ namespace AdvancedFileEncryption
                         elePublic.AppendChild(eleChild);
                     }
                     XmlElement elePrivate = docExport.CreateElement("PrivateKey");
-                    //foreach (XmlNode node in doc.SelectSingleNode(Xpath + "/PrivateKey/RSAKeyValue")
-                    //    .ChildNodes)
-                    {
-                        //XmlElement eleChild = docExport.CreateElement(node.Name);
-                        elePrivate.InnerText = doc.SelectSingleNode(Xpath + "/PrivateKey").InnerText;
-                    }
-
+                    
+                    elePrivate.InnerText = doc.SelectSingleNode(Xpath + "/PrivateKey").InnerText;
 
                     eleExp.AppendChild(elePublic);
                     eleExp.AppendChild(elePrivate);
