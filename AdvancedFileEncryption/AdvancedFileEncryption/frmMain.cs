@@ -21,8 +21,8 @@ namespace AdvancedFileEncryption
 
         UserAccount acc = new UserAccount();
         Form1 frmLogin;
-        CryptoConfig crypto = new CryptoConfig();
-        
+        MyCryptography crypto = new MyCryptography();
+        DigitalSignature digiSign = new DigitalSignature();
 
         public frmMain(UserAccount account, Form1 frm)
         {
@@ -37,6 +37,16 @@ namespace AdvancedFileEncryption
             cbAlgorithmEncr.SelectedIndex = 0;
             cbModeEncr.SelectedIndex = 0;
             cbPaddingEncr.SelectedIndex = 0;
+            addEmailListToCb();
+        }
+
+        private void addEmailListToCb()
+        {
+            foreach (string email in acc.getEmailList())
+            {
+                cbEmailList.Items.Add(email);
+            }
+            cbEmailList.SelectedIndex = 0;
         }
 
         private void fillFields()
@@ -216,6 +226,7 @@ namespace AdvancedFileEncryption
                 if (acc.import(importKeyInfoDialog1.FileName))
                 {
                     MessageBox.Show("Imported successfully!");
+                    addEmailListToCb();
                 }
                 else
                 {
@@ -363,23 +374,36 @@ namespace AdvancedFileEncryption
             string inputFile = txtInputEncr.Text;
             if (!File.Exists(inputFile))
             {
-                MessageBox.Show("Invalid file path or file does not exist!");
+                MessageBox.Show("Invalid file path or file does not exist!", "File encryption",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
 
             byte[] plainData = File.ReadAllBytes(inputFile);
-            byte[] encryptedByte = crypto.Encrypt(acc.Email, plainData, key,
-               iv, mode, padding, blockSize, keySize);
+            byte[] encryptedByte = crypto.Encrypt(cbEmailList.Text, plainData, 
+                key, iv, mode, padding, blockSize, keySize);
             if (encryptedByte == null)
             {
-                MessageBox.Show("Encryption failed!");
+                MessageBox.Show("Encryption failed!", "File encryption",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
             {
                 File.WriteAllBytes(txtOutputEncr.Text, encryptedByte);
-                MessageBox.Show("File encrypted successfully!");
+                MessageBox.Show("File encrypted successfully!", "File encryption",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (acc.sendFileViaEmail(cbEmailList.Text, txtOutputEncr.Text))
+                {
+                    MessageBox.Show("File sent successfully!", "File encryption",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Unable to send file!", "File encryption",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception err)
             {
@@ -436,6 +460,101 @@ namespace AdvancedFileEncryption
                 MessageBox.Show("Error occurs while decrypting: " + error);
             }
             MessageBox.Show("Decrypted successfully!");
+        }
+
+        private void btnChooseFileSign_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Choose file to sign";
+            DialogResult dlgRes = openFileDialog1.ShowDialog();
+            if (dlgRes == DialogResult.OK)
+            {
+                string inputPath = openFileDialog1.FileName;
+                txtInputSign.Text = inputPath;
+                txtOutputSign.Text = inputPath + ".sig";
+            }
+        }
+
+        private void btnExecSign_Click(object sender, EventArgs e)
+        {
+            if (txtInputSign.Text.Length == 0)
+            {
+                MessageBox.Show("Please select a file to sign", "Sign to file",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!acc.isAuthenticated(acc.Email, txtPassSign.Text))
+            {
+                MessageBox.Show("Invalid Passphrase", "Sign to file",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassSign.Focus();
+                return;
+            }
+            BackgroundWorker signWorker = new BackgroundWorker();
+            signWorker.DoWork += new DoWorkEventHandler(digiSign.WorkerSign);
+            signWorker.RunWorkerCompleted += 
+                new RunWorkerCompletedEventHandler(digiSign.WorkerSignComplete);
+            object[] parameters =
+                new object[] { txtInputSign.Text, txtOutputSign.Text,
+                acc.Email, txtPassSign.Text};
+            signWorker.RunWorkerAsync(parameters);
+        }
+
+        private void btnExecVerify_Click(object sender, EventArgs e)
+        {
+            if (txtInputVerify.Text.Length == 0)
+            {
+                MessageBox.Show("Please select a file to sign", "Verify signature",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (txtSignVerify.Text.Length == 0)
+            {
+                MessageBox.Show("Please select a signature file", "Verify signature",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            BackgroundWorker verifyWorker = new BackgroundWorker();
+            verifyWorker.DoWork += 
+                new DoWorkEventHandler(digiSign.WorkerVerify);
+            verifyWorker.RunWorkerCompleted +=
+                new RunWorkerCompletedEventHandler(digiSign.WorkerVerifyComplete);
+            object[] parameters = new object[] { txtInputVerify.Text, txtSignVerify.Text, acc.Email };
+            verifyWorker.RunWorkerAsync(parameters);
+        }
+
+        private void btnInputSignVerify_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Choose file to verify signature";
+            DialogResult dlgRes = openFileDialog1.ShowDialog();
+            if (dlgRes == DialogResult.OK)
+            {
+                string inputPath = openFileDialog1.FileName;
+                txtSignVerify.Text = inputPath;
+                
+            }
+        }
+
+        private void btnInputVerify_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Title = "Choose signature file";
+            DialogResult dlgRes = openFileDialog1.ShowDialog();
+            openFileDialog1.Filter = "Signature File (*.sig) | *.sig";
+            if (dlgRes == DialogResult.OK)
+            {
+                string inputPath = openFileDialog1.FileName;
+                txtInputVerify.Text = inputPath;
+            }
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
     }

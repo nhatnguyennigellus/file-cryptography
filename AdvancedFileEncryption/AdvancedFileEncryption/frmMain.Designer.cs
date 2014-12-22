@@ -29,27 +29,6 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtBirthdate = new System.Windows.Forms.DateTimePicker();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtAddress = new System.Windows.Forms.TextBox();
-            this.txtFullname = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnUpdateProfile = new System.Windows.Forms.Button();
-            this.txtCfmPass = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnUpdatePass = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtRepPass = new System.Windows.Forms.TextBox();
-            this.txtNewPass = new System.Windows.Forms.TextBox();
-            this.txtOldPass = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnExecEncr = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -77,6 +56,53 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnChooseFileEncr = new System.Windows.Forms.Button();
             this.txtInputEncr = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnExecDecrypt = new System.Windows.Forms.Button();
+            this.txtPassDecr = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.txtOutputDecr = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.btnChooseFileDecr = new System.Windows.Forms.Button();
+            this.txtInputDecr = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txtOutputSign = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.btnChooseFileSign = new System.Windows.Forms.Button();
+            this.txtInputSign = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnExecSign = new System.Windows.Forms.Button();
+            this.txtPassSign = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnExecVerify = new System.Windows.Forms.Button();
+            this.txtSignVerify = new System.Windows.Forms.TextBox();
+            this.btnInputVerify = new System.Windows.Forms.Button();
+            this.txtInputVerify = new System.Windows.Forms.TextBox();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtBirthdate = new System.Windows.Forms.DateTimePicker();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtFullname = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnUpdateProfile = new System.Windows.Forms.Button();
+            this.txtCfmPass = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnUpdatePass = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtRepPass = new System.Windows.Forms.TextBox();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.txtOldPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,264 +116,81 @@
             this.importKeyInfoDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtOutputDecr = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.btnChooseFileDecr = new System.Windows.Forms.Button();
-            this.txtInputDecr = new System.Windows.Forms.TextBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btnExecDecrypt = new System.Windows.Forms.Button();
-            this.txtPassDecr = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.btnInputSignVerify = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.cbEmailList = new System.Windows.Forms.ComboBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 62);
+            this.tabControl1.Location = new System.Drawing.Point(2, 70);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(542, 418);
+            this.tabControl1.Size = new System.Drawing.Size(544, 494);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.txtBirthdate);
-            this.tabPage1.Controls.Add(this.txtPhone);
-            this.tabPage1.Controls.Add(this.txtAddress);
-            this.tabPage1.Controls.Add(this.txtFullname);
-            this.tabPage1.Controls.Add(this.panel1);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(534, 392);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Edit Account";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // txtBirthdate
-            // 
-            this.txtBirthdate.Location = new System.Drawing.Point(153, 172);
-            this.txtBirthdate.Name = "txtBirthdate";
-            this.txtBirthdate.Size = new System.Drawing.Size(200, 20);
-            this.txtBirthdate.TabIndex = 3;
-            // 
-            // txtPhone
-            // 
-            this.txtPhone.Location = new System.Drawing.Point(153, 131);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(160, 20);
-            this.txtPhone.TabIndex = 2;
-            // 
-            // txtAddress
-            // 
-            this.txtAddress.Location = new System.Drawing.Point(153, 87);
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(160, 20);
-            this.txtAddress.TabIndex = 1;
-            // 
-            // txtFullname
-            // 
-            this.txtFullname.Location = new System.Drawing.Point(153, 43);
-            this.txtFullname.Name = "txtFullname";
-            this.txtFullname.Size = new System.Drawing.Size(129, 20);
-            this.txtFullname.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel1.Controls.Add(this.btnUpdateProfile);
-            this.panel1.Controls.Add(this.txtCfmPass);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(6, 253);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(520, 84);
-            this.panel1.TabIndex = 1;
-            // 
-            // btnUpdateProfile
-            // 
-            this.btnUpdateProfile.Location = new System.Drawing.Point(252, 44);
-            this.btnUpdateProfile.Name = "btnUpdateProfile";
-            this.btnUpdateProfile.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdateProfile.TabIndex = 1;
-            this.btnUpdateProfile.Text = "Update";
-            this.btnUpdateProfile.UseVisualStyleBackColor = true;
-            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
-            // 
-            // txtCfmPass
-            // 
-            this.txtCfmPass.Location = new System.Drawing.Point(242, 14);
-            this.txtCfmPass.Name = "txtCfmPass";
-            this.txtCfmPass.PasswordChar = '*';
-            this.txtCfmPass.Size = new System.Drawing.Size(156, 20);
-            this.txtCfmPass.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 17);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 13);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Enter passphrase to edit profile";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(77, 178);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Birthdate";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(77, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Phone";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(77, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Address";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Fullname";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnUpdatePass);
-            this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.txtRepPass);
-            this.tabPage2.Controls.Add(this.txtNewPass);
-            this.tabPage2.Controls.Add(this.txtOldPass);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(534, 392);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Change Passphrase";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdatePass
-            // 
-            this.btnUpdatePass.Location = new System.Drawing.Point(189, 194);
-            this.btnUpdatePass.Name = "btnUpdatePass";
-            this.btnUpdatePass.Size = new System.Drawing.Size(75, 23);
-            this.btnUpdatePass.TabIndex = 3;
-            this.btnUpdatePass.Text = "Update";
-            this.btnUpdatePass.UseVisualStyleBackColor = true;
-            this.btnUpdatePass.Click += new System.EventHandler(this.btnUpdatePass_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(79, 121);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Repeat Passphrase";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(92, 84);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "New Passphrase";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(98, 48);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(81, 13);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Old Passphrase";
-            // 
-            // txtRepPass
-            // 
-            this.txtRepPass.Location = new System.Drawing.Point(213, 118);
-            this.txtRepPass.Name = "txtRepPass";
-            this.txtRepPass.PasswordChar = '*';
-            this.txtRepPass.Size = new System.Drawing.Size(142, 20);
-            this.txtRepPass.TabIndex = 2;
-            // 
-            // txtNewPass
-            // 
-            this.txtNewPass.Location = new System.Drawing.Point(213, 81);
-            this.txtNewPass.Name = "txtNewPass";
-            this.txtNewPass.PasswordChar = '*';
-            this.txtNewPass.Size = new System.Drawing.Size(142, 20);
-            this.txtNewPass.TabIndex = 1;
-            // 
-            // txtOldPass
-            // 
-            this.txtOldPass.Location = new System.Drawing.Point(213, 45);
-            this.txtOldPass.Name = "txtOldPass";
-            this.txtOldPass.PasswordChar = '*';
-            this.txtOldPass.Size = new System.Drawing.Size(142, 20);
-            this.txtOldPass.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage3.Controls.Add(this.btnExecEncr);
+            this.tabPage3.BackColor = System.Drawing.Color.White;
+            this.tabPage3.Controls.Add(this.groupBox7);
+            this.tabPage3.Controls.Add(this.label21);
             this.tabPage3.Controls.Add(this.groupBox3);
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(534, 392);
+            this.tabPage3.Size = new System.Drawing.Size(536, 468);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Encryption";
             // 
             // btnExecEncr
             // 
-            this.btnExecEncr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecEncr.Location = new System.Drawing.Point(195, 363);
+            this.btnExecEncr.BackColor = System.Drawing.Color.Salmon;
+            this.btnExecEncr.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecEncr.Location = new System.Drawing.Point(356, 12);
             this.btnExecEncr.Name = "btnExecEncr";
-            this.btnExecEncr.Size = new System.Drawing.Size(147, 23);
+            this.btnExecEncr.Size = new System.Drawing.Size(147, 41);
             this.btnExecEncr.TabIndex = 6;
             this.btnExecEncr.Text = "Encrypt!";
-            this.btnExecEncr.UseVisualStyleBackColor = true;
+            this.btnExecEncr.UseVisualStyleBackColor = false;
             this.btnExecEncr.Click += new System.EventHandler(this.btnExecEncr_Click);
             // 
             // groupBox3
@@ -362,7 +205,7 @@
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Location = new System.Drawing.Point(6, 243);
+            this.groupBox3.Location = new System.Drawing.Point(7, 280);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(522, 114);
             this.groupBox3.TabIndex = 5;
@@ -493,7 +336,7 @@
             this.groupBox2.Controls.Add(this.txtIVEncr);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(6, 112);
+            this.groupBox2.Location = new System.Drawing.Point(7, 149);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(522, 125);
             this.groupBox2.TabIndex = 4;
@@ -583,9 +426,9 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.btnChooseFileEncr);
             this.groupBox1.Controls.Add(this.txtInputEncr);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Location = new System.Drawing.Point(7, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(520, 100);
+            this.groupBox1.Size = new System.Drawing.Size(522, 100);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File";
@@ -625,12 +468,474 @@
             this.txtInputEncr.Size = new System.Drawing.Size(292, 20);
             this.txtInputEncr.TabIndex = 1;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.White;
+            this.tabPage4.Controls.Add(this.label22);
+            this.tabPage4.Controls.Add(this.panel3);
+            this.tabPage4.Controls.Add(this.groupBox6);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(536, 461);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Decryption";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel3.Controls.Add(this.btnExecDecrypt);
+            this.panel3.Controls.Add(this.txtPassDecr);
+            this.panel3.Controls.Add(this.label20);
+            this.panel3.Location = new System.Drawing.Point(8, 190);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(520, 78);
+            this.panel3.TabIndex = 8;
+            // 
+            // btnExecDecrypt
+            // 
+            this.btnExecDecrypt.BackColor = System.Drawing.Color.Chartreuse;
+            this.btnExecDecrypt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecDecrypt.Location = new System.Drawing.Point(367, 16);
+            this.btnExecDecrypt.Name = "btnExecDecrypt";
+            this.btnExecDecrypt.Size = new System.Drawing.Size(121, 42);
+            this.btnExecDecrypt.TabIndex = 1;
+            this.btnExecDecrypt.Text = "Decrypt!";
+            this.btnExecDecrypt.UseVisualStyleBackColor = false;
+            this.btnExecDecrypt.Click += new System.EventHandler(this.btnExecDecrypt_Click);
+            // 
+            // txtPassDecr
+            // 
+            this.txtPassDecr.Location = new System.Drawing.Point(175, 29);
+            this.txtPassDecr.Name = "txtPassDecr";
+            this.txtPassDecr.PasswordChar = '*';
+            this.txtPassDecr.Size = new System.Drawing.Size(156, 20);
+            this.txtPassDecr.TabIndex = 0;
+            this.txtPassDecr.Text = "nigel4492";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(30, 32);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(139, 13);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Enter passphrase to decrypt";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.txtOutputDecr);
+            this.groupBox6.Controls.Add(this.label27);
+            this.groupBox6.Controls.Add(this.btnChooseFileDecr);
+            this.groupBox6.Controls.Add(this.txtInputDecr);
+            this.groupBox6.Location = new System.Drawing.Point(8, 61);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(520, 100);
+            this.groupBox6.TabIndex = 3;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "File";
+            // 
+            // txtOutputDecr
+            // 
+            this.txtOutputDecr.Location = new System.Drawing.Point(127, 59);
+            this.txtOutputDecr.Name = "txtOutputDecr";
+            this.txtOutputDecr.ReadOnly = true;
+            this.txtOutputDecr.Size = new System.Drawing.Size(326, 20);
+            this.txtOutputDecr.TabIndex = 1;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(53, 62);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(55, 13);
+            this.label27.TabIndex = 2;
+            this.label27.Text = "Output file";
+            // 
+            // btnChooseFileDecr
+            // 
+            this.btnChooseFileDecr.Location = new System.Drawing.Point(33, 22);
+            this.btnChooseFileDecr.Name = "btnChooseFileDecr";
+            this.btnChooseFileDecr.Size = new System.Drawing.Size(75, 23);
+            this.btnChooseFileDecr.TabIndex = 0;
+            this.btnChooseFileDecr.Text = "Choose file";
+            this.btnChooseFileDecr.UseVisualStyleBackColor = true;
+            this.btnChooseFileDecr.Click += new System.EventHandler(this.btnChooseFileDecr_Click);
+            // 
+            // txtInputDecr
+            // 
+            this.txtInputDecr.Location = new System.Drawing.Point(127, 24);
+            this.txtInputDecr.Name = "txtInputDecr";
+            this.txtInputDecr.ReadOnly = true;
+            this.txtInputDecr.Size = new System.Drawing.Size(292, 20);
+            this.txtInputDecr.TabIndex = 1;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.White;
+            this.tabPage5.Controls.Add(this.label23);
+            this.tabPage5.Controls.Add(this.groupBox4);
+            this.tabPage5.Controls.Add(this.panel2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(536, 461);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Signature";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.txtOutputSign);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.btnChooseFileSign);
+            this.groupBox4.Controls.Add(this.txtInputSign);
+            this.groupBox4.Location = new System.Drawing.Point(6, 70);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(524, 100);
+            this.groupBox4.TabIndex = 10;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "File";
+            // 
+            // txtOutputSign
+            // 
+            this.txtOutputSign.Location = new System.Drawing.Point(127, 59);
+            this.txtOutputSign.Name = "txtOutputSign";
+            this.txtOutputSign.ReadOnly = true;
+            this.txtOutputSign.Size = new System.Drawing.Size(326, 20);
+            this.txtOutputSign.TabIndex = 1;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(40, 62);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(68, 13);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Signature file";
+            // 
+            // btnChooseFileSign
+            // 
+            this.btnChooseFileSign.Location = new System.Drawing.Point(33, 22);
+            this.btnChooseFileSign.Name = "btnChooseFileSign";
+            this.btnChooseFileSign.Size = new System.Drawing.Size(75, 23);
+            this.btnChooseFileSign.TabIndex = 0;
+            this.btnChooseFileSign.Text = "Choose file";
+            this.btnChooseFileSign.UseVisualStyleBackColor = true;
+            this.btnChooseFileSign.Click += new System.EventHandler(this.btnChooseFileSign_Click);
+            // 
+            // txtInputSign
+            // 
+            this.txtInputSign.Location = new System.Drawing.Point(127, 24);
+            this.txtInputSign.Name = "txtInputSign";
+            this.txtInputSign.ReadOnly = true;
+            this.txtInputSign.Size = new System.Drawing.Size(292, 20);
+            this.txtInputSign.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel2.Controls.Add(this.btnExecSign);
+            this.panel2.Controls.Add(this.txtPassSign);
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Location = new System.Drawing.Point(6, 218);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(524, 80);
+            this.panel2.TabIndex = 9;
+            // 
+            // btnExecSign
+            // 
+            this.btnExecSign.BackColor = System.Drawing.Color.Gold;
+            this.btnExecSign.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecSign.Location = new System.Drawing.Point(365, 20);
+            this.btnExecSign.Name = "btnExecSign";
+            this.btnExecSign.Size = new System.Drawing.Size(121, 36);
+            this.btnExecSign.TabIndex = 1;
+            this.btnExecSign.Text = "Sign!";
+            this.btnExecSign.UseVisualStyleBackColor = false;
+            this.btnExecSign.Click += new System.EventHandler(this.btnExecSign_Click);
+            // 
+            // txtPassSign
+            // 
+            this.txtPassSign.Location = new System.Drawing.Point(175, 29);
+            this.txtPassSign.Name = "txtPassSign";
+            this.txtPassSign.PasswordChar = '*';
+            this.txtPassSign.Size = new System.Drawing.Size(156, 20);
+            this.txtPassSign.TabIndex = 0;
+            this.txtPassSign.Text = "nigel4492";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(30, 32);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Enter passphrase to sign";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.White;
+            this.tabPage6.Controls.Add(this.label24);
+            this.tabPage6.Controls.Add(this.groupBox5);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(536, 461);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Verify Signature";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnInputSignVerify);
+            this.groupBox5.Controls.Add(this.btnExecVerify);
+            this.groupBox5.Controls.Add(this.txtSignVerify);
+            this.groupBox5.Controls.Add(this.btnInputVerify);
+            this.groupBox5.Controls.Add(this.txtInputVerify);
+            this.groupBox5.Location = new System.Drawing.Point(8, 89);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(520, 150);
+            this.groupBox5.TabIndex = 11;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "File";
+            // 
+            // btnExecVerify
+            // 
+            this.btnExecVerify.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnExecVerify.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExecVerify.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExecVerify.Location = new System.Drawing.Point(199, 101);
+            this.btnExecVerify.Name = "btnExecVerify";
+            this.btnExecVerify.Size = new System.Drawing.Size(125, 36);
+            this.btnExecVerify.TabIndex = 3;
+            this.btnExecVerify.Text = "Verify!";
+            this.btnExecVerify.UseVisualStyleBackColor = false;
+            this.btnExecVerify.Click += new System.EventHandler(this.btnExecVerify_Click);
+            // 
+            // txtSignVerify
+            // 
+            this.txtSignVerify.Location = new System.Drawing.Point(160, 59);
+            this.txtSignVerify.Name = "txtSignVerify";
+            this.txtSignVerify.ReadOnly = true;
+            this.txtSignVerify.Size = new System.Drawing.Size(326, 20);
+            this.txtSignVerify.TabIndex = 1;
+            // 
+            // btnInputVerify
+            // 
+            this.btnInputVerify.Location = new System.Drawing.Point(33, 22);
+            this.btnInputVerify.Name = "btnInputVerify";
+            this.btnInputVerify.Size = new System.Drawing.Size(105, 23);
+            this.btnInputVerify.TabIndex = 0;
+            this.btnInputVerify.Text = "Choose file";
+            this.btnInputVerify.UseVisualStyleBackColor = true;
+            this.btnInputVerify.Click += new System.EventHandler(this.btnInputVerify_Click);
+            // 
+            // txtInputVerify
+            // 
+            this.txtInputVerify.Location = new System.Drawing.Point(160, 24);
+            this.txtInputVerify.Name = "txtInputVerify";
+            this.txtInputVerify.ReadOnly = true;
+            this.txtInputVerify.Size = new System.Drawing.Size(292, 20);
+            this.txtInputVerify.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox9);
+            this.tabPage1.Controls.Add(this.label25);
+            this.tabPage1.Controls.Add(this.panel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(536, 461);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Edit Account";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtBirthdate
+            // 
+            this.txtBirthdate.Location = new System.Drawing.Point(206, 165);
+            this.txtBirthdate.Name = "txtBirthdate";
+            this.txtBirthdate.Size = new System.Drawing.Size(200, 20);
+            this.txtBirthdate.TabIndex = 3;
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(206, 124);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(111, 20);
+            this.txtPhone.TabIndex = 2;
+            // 
+            // txtAddress
+            // 
+            this.txtAddress.Location = new System.Drawing.Point(206, 80);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(200, 20);
+            this.txtAddress.TabIndex = 1;
+            // 
+            // txtFullname
+            // 
+            this.txtFullname.Location = new System.Drawing.Point(206, 36);
+            this.txtFullname.Name = "txtFullname";
+            this.txtFullname.Size = new System.Drawing.Size(151, 20);
+            this.txtFullname.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btnUpdateProfile);
+            this.panel1.Controls.Add(this.txtCfmPass);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Location = new System.Drawing.Point(6, 304);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(524, 84);
+            this.panel1.TabIndex = 1;
+            // 
+            // btnUpdateProfile
+            // 
+            this.btnUpdateProfile.BackColor = System.Drawing.Color.DarkMagenta;
+            this.btnUpdateProfile.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateProfile.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUpdateProfile.Location = new System.Drawing.Point(402, 19);
+            this.btnUpdateProfile.Name = "btnUpdateProfile";
+            this.btnUpdateProfile.Size = new System.Drawing.Size(91, 39);
+            this.btnUpdateProfile.TabIndex = 1;
+            this.btnUpdateProfile.Text = "Update";
+            this.btnUpdateProfile.UseVisualStyleBackColor = false;
+            this.btnUpdateProfile.Click += new System.EventHandler(this.btnUpdateProfile_Click);
+            // 
+            // txtCfmPass
+            // 
+            this.txtCfmPass.Location = new System.Drawing.Point(215, 30);
+            this.txtCfmPass.Name = "txtCfmPass";
+            this.txtCfmPass.PasswordChar = '*';
+            this.txtCfmPass.Size = new System.Drawing.Size(156, 20);
+            this.txtCfmPass.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(28, 33);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(152, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Enter passphrase to edit profile";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(102, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Birthdate";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(102, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(38, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Phone";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(102, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Address";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(102, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Fullname";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.groupBox8);
+            this.tabPage2.Controls.Add(this.label26);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(536, 461);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Change Passphrase";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdatePass
+            // 
+            this.btnUpdatePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUpdatePass.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePass.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnUpdatePass.Location = new System.Drawing.Point(94, 149);
+            this.btnUpdatePass.Name = "btnUpdatePass";
+            this.btnUpdatePass.Size = new System.Drawing.Size(158, 43);
+            this.btnUpdatePass.TabIndex = 3;
+            this.btnUpdatePass.Text = "Change passphrase";
+            this.btnUpdatePass.UseVisualStyleBackColor = false;
+            this.btnUpdatePass.Click += new System.EventHandler(this.btnUpdatePass_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 104);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Repeat Passphrase";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(34, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(87, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "New Passphrase";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(40, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Old Passphrase";
+            // 
+            // txtRepPass
+            // 
+            this.txtRepPass.Location = new System.Drawing.Point(189, 101);
+            this.txtRepPass.Name = "txtRepPass";
+            this.txtRepPass.PasswordChar = '*';
+            this.txtRepPass.Size = new System.Drawing.Size(142, 20);
+            this.txtRepPass.TabIndex = 2;
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Location = new System.Drawing.Point(189, 64);
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.PasswordChar = '*';
+            this.txtNewPass.Size = new System.Drawing.Size(142, 20);
+            this.txtNewPass.TabIndex = 1;
+            // 
+            // txtOldPass
+            // 
+            this.txtOldPass.Location = new System.Drawing.Point(189, 28);
+            this.txtOldPass.Name = "txtOldPass";
+            this.txtOldPass.PasswordChar = '*';
+            this.txtOldPass.Size = new System.Drawing.Size(142, 20);
+            this.txtOldPass.TabIndex = 0;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(19, 33);
+            this.label1.Location = new System.Drawing.Point(23, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 16);
             this.label1.TabIndex = 1;
@@ -644,7 +949,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(542, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -654,8 +959,8 @@
             this.exitToolStripMenuItem,
             this.logoutToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.fileToolStripMenuItem.Text = "Program";
             // 
             // exitToolStripMenuItem
             // 
@@ -717,139 +1022,224 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tabPage4
+            // btnInputSignVerify
             // 
-            this.tabPage4.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage4.Controls.Add(this.panel3);
-            this.tabPage4.Controls.Add(this.groupBox6);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(534, 392);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Decryption";
+            this.btnInputSignVerify.Location = new System.Drawing.Point(33, 57);
+            this.btnInputSignVerify.Name = "btnInputSignVerify";
+            this.btnInputSignVerify.Size = new System.Drawing.Size(105, 38);
+            this.btnInputSignVerify.TabIndex = 4;
+            this.btnInputSignVerify.Text = "Choose Signature File";
+            this.btnInputSignVerify.UseVisualStyleBackColor = true;
+            this.btnInputSignVerify.Click += new System.EventHandler(this.btnInputSignVerify_Click);
             // 
-            // groupBox6
+            // btnLogout
             // 
-            this.groupBox6.Controls.Add(this.txtOutputDecr);
-            this.groupBox6.Controls.Add(this.label27);
-            this.groupBox6.Controls.Add(this.btnChooseFileDecr);
-            this.groupBox6.Controls.Add(this.txtInputDecr);
-            this.groupBox6.Location = new System.Drawing.Point(6, 6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(520, 100);
-            this.groupBox6.TabIndex = 3;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "File";
+            this.btnLogout.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogout.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnLogout.Location = new System.Drawing.Point(344, 31);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(75, 29);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // txtOutputDecr
+            // btnExit
             // 
-            this.txtOutputDecr.Location = new System.Drawing.Point(127, 59);
-            this.txtOutputDecr.Name = "txtOutputDecr";
-            this.txtOutputDecr.ReadOnly = true;
-            this.txtOutputDecr.Size = new System.Drawing.Size(326, 20);
-            this.txtOutputDecr.TabIndex = 1;
+            this.btnExit.BackColor = System.Drawing.Color.Salmon;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnExit.Location = new System.Drawing.Point(441, 31);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 29);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // label27
+            // label21
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(53, 62);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(55, 13);
-            this.label27.TabIndex = 2;
-            this.label27.Text = "Output file";
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.DarkRed;
+            this.label21.Location = new System.Drawing.Point(195, 13);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(131, 26);
+            this.label21.TabIndex = 7;
+            this.label21.Text = "ENCRYPT FILE";
             // 
-            // btnChooseFileDecr
+            // label22
             // 
-            this.btnChooseFileDecr.Location = new System.Drawing.Point(33, 22);
-            this.btnChooseFileDecr.Name = "btnChooseFileDecr";
-            this.btnChooseFileDecr.Size = new System.Drawing.Size(75, 23);
-            this.btnChooseFileDecr.TabIndex = 0;
-            this.btnChooseFileDecr.Text = "Choose file";
-            this.btnChooseFileDecr.UseVisualStyleBackColor = true;
-            this.btnChooseFileDecr.Click += new System.EventHandler(this.btnChooseFileDecr_Click);
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Green;
+            this.label22.Location = new System.Drawing.Point(197, 17);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(130, 26);
+            this.label22.TabIndex = 9;
+            this.label22.Text = "DECRYPT FILE";
             // 
-            // txtInputDecr
+            // label23
             // 
-            this.txtInputDecr.Location = new System.Drawing.Point(127, 24);
-            this.txtInputDecr.Name = "txtInputDecr";
-            this.txtInputDecr.ReadOnly = true;
-            this.txtInputDecr.Size = new System.Drawing.Size(292, 20);
-            this.txtInputDecr.TabIndex = 1;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Goldenrod;
+            this.label23.Location = new System.Drawing.Point(149, 19);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(242, 26);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "WRITE SIGNATURE TO FILE";
             // 
-            // panel3
+            // label24
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel3.Controls.Add(this.btnExecDecrypt);
-            this.panel3.Controls.Add(this.txtPassDecr);
-            this.panel3.Controls.Add(this.label20);
-            this.panel3.Location = new System.Drawing.Point(6, 135);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(520, 84);
-            this.panel3.TabIndex = 8;
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label24.Location = new System.Drawing.Point(163, 23);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(178, 26);
+            this.label24.TabIndex = 12;
+            this.label24.Text = "VERIFY SIGNATURE";
             // 
-            // btnExecDecrypt
+            // label25
             // 
-            this.btnExecDecrypt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExecDecrypt.Location = new System.Drawing.Point(365, 27);
-            this.btnExecDecrypt.Name = "btnExecDecrypt";
-            this.btnExecDecrypt.Size = new System.Drawing.Size(121, 23);
-            this.btnExecDecrypt.TabIndex = 1;
-            this.btnExecDecrypt.Text = "Decrypt!";
-            this.btnExecDecrypt.UseVisualStyleBackColor = true;
-            this.btnExecDecrypt.Click += new System.EventHandler(this.btnExecDecrypt_Click);
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Purple;
+            this.label25.Location = new System.Drawing.Point(175, 27);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(128, 26);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "EDIT PROFILE";
             // 
-            // txtPassDecr
+            // label26
             // 
-            this.txtPassDecr.Location = new System.Drawing.Point(175, 29);
-            this.txtPassDecr.Name = "txtPassDecr";
-            this.txtPassDecr.PasswordChar = '*';
-            this.txtPassDecr.Size = new System.Drawing.Size(156, 20);
-            this.txtPassDecr.TabIndex = 0;
-            this.txtPassDecr.Text = "nigel4492";
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.label26.Location = new System.Drawing.Point(166, 30);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(203, 26);
+            this.label26.TabIndex = 13;
+            this.label26.Text = "CHANGE PASSPHRASE";
             // 
-            // label20
+            // groupBox7
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(30, 32);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(139, 13);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Enter passphrase to decrypt";
+            this.groupBox7.Controls.Add(this.cbEmailList);
+            this.groupBox7.Controls.Add(this.btnExecEncr);
+            this.groupBox7.Controls.Add(this.label28);
+            this.groupBox7.Location = new System.Drawing.Point(7, 396);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(522, 59);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Encrypt and send";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(36, 27);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(44, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Send to";
+            // 
+            // cbEmailList
+            // 
+            this.cbEmailList.FormattingEnabled = true;
+            this.cbEmailList.Location = new System.Drawing.Point(99, 24);
+            this.cbEmailList.Name = "cbEmailList";
+            this.cbEmailList.Size = new System.Drawing.Size(232, 21);
+            this.cbEmailList.TabIndex = 7;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label9);
+            this.groupBox8.Controls.Add(this.txtOldPass);
+            this.groupBox8.Controls.Add(this.btnUpdatePass);
+            this.groupBox8.Controls.Add(this.txtNewPass);
+            this.groupBox8.Controls.Add(this.txtRepPass);
+            this.groupBox8.Controls.Add(this.label8);
+            this.groupBox8.Controls.Add(this.label7);
+            this.groupBox8.Location = new System.Drawing.Point(91, 86);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(353, 225);
+            this.groupBox8.TabIndex = 14;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Change Passphrase";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.txtBirthdate);
+            this.groupBox9.Controls.Add(this.label2);
+            this.groupBox9.Controls.Add(this.label3);
+            this.groupBox9.Controls.Add(this.txtPhone);
+            this.groupBox9.Controls.Add(this.label4);
+            this.groupBox9.Controls.Add(this.txtAddress);
+            this.groupBox9.Controls.Add(this.label5);
+            this.groupBox9.Controls.Add(this.txtFullname);
+            this.groupBox9.Location = new System.Drawing.Point(6, 66);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(524, 221);
+            this.groupBox9.TabIndex = 14;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Edit profile";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 492);
+            this.ClientSize = new System.Drawing.Size(544, 567);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "Dashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.tabPage4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -929,5 +1319,35 @@
         private System.Windows.Forms.Button btnExecDecrypt;
         private System.Windows.Forms.TextBox txtPassDecr;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnExecSign;
+        private System.Windows.Forms.TextBox txtPassSign;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox txtOutputSign;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button btnChooseFileSign;
+        private System.Windows.Forms.TextBox txtInputSign;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox txtSignVerify;
+        private System.Windows.Forms.Button btnInputVerify;
+        private System.Windows.Forms.TextBox txtInputVerify;
+        private System.Windows.Forms.Button btnExecVerify;
+        private System.Windows.Forms.Button btnInputSignVerify;
+        private System.Windows.Forms.Button btnLogout;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox cbEmailList;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox9;
     }
 }

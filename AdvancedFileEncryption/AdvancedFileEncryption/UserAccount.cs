@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.IO;
 using System.Xml;
-
+using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 namespace AdvancedFileEncryption
 {
     public class UserAccount
@@ -19,6 +21,18 @@ namespace AdvancedFileEncryption
         public string Phone { get; set; }
 
         XmlDocument doc = new XMLInit().ReadXML();
+
+        public List<string> getEmailList()
+        {
+            List<string> emailList = new List<string>();
+            string Xpath = "/Accounts/Account";
+            XmlNodeList eleList = doc.SelectNodes(Xpath);
+            foreach (XmlElement eleAcc in eleList)
+            {
+                emailList.Add(eleAcc.GetAttribute("Email"));
+            }
+            return emailList;
+        }
         public void register(string publicKeyXML, string privateKeyXML)
         {
             string Xpath = "/Accounts";
@@ -91,6 +105,15 @@ namespace AdvancedFileEncryption
             return elePubKey.InnerText;
         }
 
+        public string getPublicKeyXMLByEmail(string email)
+        {
+            string Xpath = "/Accounts/Account[contains(@Email, '"
+                + email + "')]/PublicKey";
+
+            XmlElement elePubKey = (XmlElement)doc.SelectSingleNode(Xpath);
+
+            return elePubKey.InnerXml;
+        }
         public string getPrivateKeyByEmail(string email)
         {
             string Xpath = "/Accounts/Account[contains(@Email, '"
@@ -437,6 +460,39 @@ namespace AdvancedFileEncryption
 
             // Return the Clear decrypted TEXT
             return UTF8Encoding.UTF8.GetString(resultArray);
+        }
+
+        public bool sendFileViaEmail(string toMail, string filePath)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress(this.Email);
+                mail.To.Add(toMail);
+                mail.Subject = "[Advanced File Cryptography] File sent from "
+                    + this.Email.Substring(0, this.Email.IndexOf('@'));
+                mail.Body = "This is the encrypted file! "
+                 + "Use your private key to decrypt! <br/> Enjoy!" ;
+
+                Attachment attachment;
+                attachment = new Attachment(filePath);
+                mail.Attachments.Add(attachment);
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = 
+                    new NetworkCredential("icecreamweb2013@gmail.com", "voyygkkgbeqepgbw");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurs while sending email: "
+                    + ex.Message);
+                return false;
+            }
         }
     }
 }
