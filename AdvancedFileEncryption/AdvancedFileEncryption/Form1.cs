@@ -65,7 +65,8 @@ namespace AdvancedFileEncryption
             }
             else
             {
-                MessageBox.Show("Invalid email or passphrase!");
+                MessageBox.Show("Invalid email or passphrase!",
+                    "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
             
         }

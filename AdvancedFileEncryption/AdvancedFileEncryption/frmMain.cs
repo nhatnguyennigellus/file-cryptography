@@ -147,7 +147,7 @@ namespace AdvancedFileEncryption
 
             if (txtOldPass.Text.Length < 6)
             {
-                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Profile",
+                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtOldPass.Focus();
                 return;
@@ -155,7 +155,7 @@ namespace AdvancedFileEncryption
 
             if (txtNewPass.Text == "")
             {
-                MessageBox.Show("Please enter a new passphrase!", "Edit Profile",
+                MessageBox.Show("Please enter your new passphrase!", "Edit Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNewPass.Focus();
                 return;
@@ -163,26 +163,27 @@ namespace AdvancedFileEncryption
 
             if (txtNewPass.Text.Length < 6)
             {
-                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Profile",
+                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNewPass.Focus();
                 return;
             }
 
-            if (txtNewPass.Text != txtRepPass.Text)
+            if (txtRepPass.Text != txtNewPass.Text)
             {
-                MessageBox.Show("Passphrases mismatch!", "Edit Profile",
+                MessageBox.Show("Passphrases mismatch!", "Edit Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtRepPass.Focus();
-                return;
             }
 
             if (acc.isAuthenticated(acc.Email, txtOldPass.Text))
             {
                 if (acc.changePassphrase(txtNewPass.Text, txtOldPass.Text))
                 {
-                    MessageBox.Show("Passphrase changed successfully!", "Edit Profile",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if(chkEnbGenPass.Checked)
+                        acc.sendNewPassphraseViaEmail(txtNewPass.Text);
+                    MessageBox.Show("Passphrase changed and sent successfully!", 
+                        "Edit Profile",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
             }
@@ -555,6 +556,40 @@ namespace AdvancedFileEncryption
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cbPaddingEncr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGenNewPass_Click(object sender, EventArgs e)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuwvxyz0123456789";
+            Random random = new Random();
+            string pass = new string(
+                Enumerable.Repeat(chars, 12)
+                .Select(s => s[random.Next(s.Length)])
+                .ToArray());
+
+            txtNewPass.Text = pass;
+            txtRepPass.Text = pass;
+        }
+
+        private void chkEnbGenPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chkEnbGenPass.Checked)
+            {
+                txtNewPass.ReadOnly = false;
+                txtRepPass.ReadOnly = false;
+                btnGenNewPass.Enabled = false;
+            }
+            else
+            {
+                txtNewPass.ReadOnly = true;
+                txtRepPass.ReadOnly = true;
+                btnGenNewPass.Enabled = true;
+            }
         }
 
     }

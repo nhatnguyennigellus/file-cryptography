@@ -494,5 +494,31 @@ namespace AdvancedFileEncryption
                 return false;
             }
         }
+
+        public void sendNewPassphraseViaEmail(string passphrase)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                mail.From = new MailAddress("icecreamweb2013@gmail.com");
+                mail.To.Add(this.Email);
+                mail.Subject = "[Advanced File Cryptography] File sent from "
+                    + this.Email.Substring(0, this.Email.IndexOf('@'));
+                mail.Body = "Your new passphrase is " + passphrase;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials =
+                    new NetworkCredential("icecreamweb2013@gmail.com", "voyygkkgbeqepgbw");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error occurs while sending email: "
+                    + ex.Message);
+            }
+        }
     }
 }

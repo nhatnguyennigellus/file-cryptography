@@ -97,10 +97,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnUpdatePass = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtRepPass = new System.Windows.Forms.TextBox();
             this.txtNewPass = new System.Windows.Forms.TextBox();
             this.txtOldPass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -130,6 +128,10 @@
             this.cbEmailList = new System.Windows.Forms.ComboBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.btnGenNewPass = new System.Windows.Forms.Button();
+            this.chkEnbGenPass = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtRepPass = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -237,6 +239,7 @@
             this.cbPaddingEncr.Name = "cbPaddingEncr";
             this.cbPaddingEncr.Size = new System.Drawing.Size(121, 21);
             this.cbPaddingEncr.TabIndex = 1;
+            this.cbPaddingEncr.SelectedIndexChanged += new System.EventHandler(this.cbPaddingEncr_SelectedIndexChanged);
             // 
             // cbModeEncr
             // 
@@ -579,7 +582,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(536, 461);
+            this.tabPage5.Size = new System.Drawing.Size(536, 468);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Signature";
             // 
@@ -679,7 +682,7 @@
             this.tabPage6.Controls.Add(this.groupBox5);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(536, 461);
+            this.tabPage6.Size = new System.Drawing.Size(536, 468);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Verify Signature";
             // 
@@ -861,7 +864,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(536, 461);
+            this.tabPage2.Size = new System.Drawing.Size(536, 468);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Change Passphrase";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -871,22 +874,13 @@
             this.btnUpdatePass.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnUpdatePass.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdatePass.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUpdatePass.Location = new System.Drawing.Point(94, 149);
+            this.btnUpdatePass.Location = new System.Drawing.Point(173, 176);
             this.btnUpdatePass.Name = "btnUpdatePass";
             this.btnUpdatePass.Size = new System.Drawing.Size(158, 43);
             this.btnUpdatePass.TabIndex = 3;
             this.btnUpdatePass.Text = "Change passphrase";
             this.btnUpdatePass.UseVisualStyleBackColor = false;
             this.btnUpdatePass.Click += new System.EventHandler(this.btnUpdatePass_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 104);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Repeat Passphrase";
             // 
             // label8
             // 
@@ -906,25 +900,18 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Old Passphrase";
             // 
-            // txtRepPass
-            // 
-            this.txtRepPass.Location = new System.Drawing.Point(189, 101);
-            this.txtRepPass.Name = "txtRepPass";
-            this.txtRepPass.PasswordChar = '*';
-            this.txtRepPass.Size = new System.Drawing.Size(142, 20);
-            this.txtRepPass.TabIndex = 2;
-            // 
             // txtNewPass
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(189, 64);
+            this.txtNewPass.Location = new System.Drawing.Point(151, 64);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.PasswordChar = '*';
+            this.txtNewPass.ReadOnly = true;
             this.txtNewPass.Size = new System.Drawing.Size(142, 20);
             this.txtNewPass.TabIndex = 1;
             // 
             // txtOldPass
             // 
-            this.txtOldPass.Location = new System.Drawing.Point(189, 28);
+            this.txtOldPass.Location = new System.Drawing.Point(151, 28);
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.PasswordChar = '*';
             this.txtOldPass.Size = new System.Drawing.Size(142, 20);
@@ -965,14 +952,14 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
@@ -988,14 +975,14 @@
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
@@ -1010,7 +997,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -1155,16 +1142,18 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.label9);
+            this.groupBox8.Controls.Add(this.chkEnbGenPass);
+            this.groupBox8.Controls.Add(this.btnGenNewPass);
             this.groupBox8.Controls.Add(this.txtOldPass);
             this.groupBox8.Controls.Add(this.btnUpdatePass);
-            this.groupBox8.Controls.Add(this.txtNewPass);
             this.groupBox8.Controls.Add(this.txtRepPass);
+            this.groupBox8.Controls.Add(this.label9);
+            this.groupBox8.Controls.Add(this.txtNewPass);
             this.groupBox8.Controls.Add(this.label8);
             this.groupBox8.Controls.Add(this.label7);
-            this.groupBox8.Location = new System.Drawing.Point(91, 86);
+            this.groupBox8.Location = new System.Drawing.Point(20, 86);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(353, 225);
+            this.groupBox8.Size = new System.Drawing.Size(506, 256);
             this.groupBox8.TabIndex = 14;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Change Passphrase";
@@ -1185,6 +1174,47 @@
             this.groupBox9.TabIndex = 14;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Edit profile";
+            // 
+            // btnGenNewPass
+            // 
+            this.btnGenNewPass.Location = new System.Drawing.Point(318, 62);
+            this.btnGenNewPass.Name = "btnGenNewPass";
+            this.btnGenNewPass.Size = new System.Drawing.Size(142, 23);
+            this.btnGenNewPass.TabIndex = 4;
+            this.btnGenNewPass.Text = "Generate Passphrase";
+            this.btnGenNewPass.UseVisualStyleBackColor = true;
+            this.btnGenNewPass.Click += new System.EventHandler(this.btnGenNewPass_Click);
+            // 
+            // chkEnbGenPass
+            // 
+            this.chkEnbGenPass.AutoSize = true;
+            this.chkEnbGenPass.Checked = true;
+            this.chkEnbGenPass.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkEnbGenPass.Location = new System.Drawing.Point(151, 141);
+            this.chkEnbGenPass.Name = "chkEnbGenPass";
+            this.chkEnbGenPass.Size = new System.Drawing.Size(156, 17);
+            this.chkEnbGenPass.TabIndex = 5;
+            this.chkEnbGenPass.Text = "Auto generate passphrase?";
+            this.chkEnbGenPass.UseVisualStyleBackColor = true;
+            this.chkEnbGenPass.CheckedChanged += new System.EventHandler(this.chkEnbGenPass_CheckedChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(34, 102);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Retype Passphrase";
+            // 
+            // txtRepPass
+            // 
+            this.txtRepPass.Location = new System.Drawing.Point(151, 99);
+            this.txtRepPass.Name = "txtRepPass";
+            this.txtRepPass.PasswordChar = '*';
+            this.txtRepPass.ReadOnly = true;
+            this.txtRepPass.Size = new System.Drawing.Size(142, 20);
+            this.txtRepPass.TabIndex = 1;
             // 
             // frmMain
             // 
@@ -1262,10 +1292,8 @@
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.TextBox txtFullname;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtRepPass;
         private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.TextBox txtOldPass;
         private System.Windows.Forms.Button btnUpdatePass;
@@ -1349,5 +1377,9 @@
         private System.Windows.Forms.ComboBox cbEmailList;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Button btnGenNewPass;
+        private System.Windows.Forms.CheckBox chkEnbGenPass;
+        private System.Windows.Forms.TextBox txtRepPass;
+        private System.Windows.Forms.Label label9;
     }
 }

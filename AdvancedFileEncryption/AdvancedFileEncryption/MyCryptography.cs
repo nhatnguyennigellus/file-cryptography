@@ -354,54 +354,6 @@ namespace AdvancedFileEncryption
                 throw;
             }
         }
-        /*
-
-        public byte[] Decrypt(byte[] encryptedData, byte[] key, byte[] iv, 
-            CipherMode mode, PaddingMode padding, int keySize, int blockSize)
-        {
-            //init
-            try
-            {
-                decryptAlg.KeySize = keySize;
-                decryptAlg.Key = key;
-                decryptAlg.Mode = mode;
-                decryptAlg.Padding = padding;
-                decryptAlg.BlockSize = blockSize;
-
-
-                if (mode != CipherMode.ECB)
-                {
-                    try
-                    {
-                        decryptAlg.IV = iv;
-                    }
-                    catch (CryptographicException ce)
-                    {
-                        MessageBox.Show("Vector IV không hợp lệ");
-                        return null;
-                    }
-                }
-
-                MemoryStream ms = new MemoryStream();
-                CryptoStream cs = new CryptoStream(ms, decryptAlg.CreateDecryptor(), CryptoStreamMode.Write);
-
-                //Encrypt
-
-                cs.Write(encryptedData, 0, encryptedData.Length);
-                cs.Close();
-
-                byte[] decryptedData = ms.ToArray();
-                ms.Close();
-
-                return decryptedData;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Có lỗi trong quá trình giải mã. Có thể do thuật toán mật khẩu, mode, padding, kích thước khóa, block, hoặc dữ liệu vào không hợp lệ");
-                return null;
-            }
-
-        }*/
 
     }
 }

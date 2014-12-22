@@ -107,5 +107,21 @@ namespace AdvancedFileEncryption
             this.Close();
             frmLogin.Show();
         }
+
+        private void frmRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmLogin.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin.Show();
+        }
+
+        private void frmRegister_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            frmLogin.Show();
+        }
     }
 }
