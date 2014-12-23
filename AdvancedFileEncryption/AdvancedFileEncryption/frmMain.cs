@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -196,7 +197,11 @@ namespace AdvancedFileEncryption
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Are you sure to exit?", "Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -242,18 +247,42 @@ namespace AdvancedFileEncryption
             this.Close();
         }
 
+        private void chkZip_CheckedChanged(object sender, EventArgs e)
+        {
+            String inputPath = txtInputEncr.Text;
+            String ext = Path.GetExtension(inputPath);
+            if (!chkZip.Checked)
+            {
+                
+                txtOutputEncr.Text = inputPath.Substring(0, inputPath.Length - ext.Length)
+                        + "_encrypted" + ext + ".encrypted";
+            }
+            else
+            {
+                txtOutputEncr.Text = inputPath.Substring(0, inputPath.Length - ext.Length)
+                    + "_encrypted" + ext + ".zip.encrypted";
+            }
+        }
+
         private void btnChooseFileEncr_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Choose file to encrypt";
             DialogResult dlgRes = openFileDialog1.ShowDialog();
             if (dlgRes == DialogResult.OK)
             {
+                chkZip.Enabled = true;
                 String inputPath = openFileDialog1.FileName;
                 txtInputEncr.Text = inputPath;
                 String ext = Path.GetExtension(inputPath);
-                txtOutputEncr.Text = inputPath.Substring(0, inputPath.Length - ext.Length) 
-                    + "_encrypted" + ext + ".encrypted";
-
+                if (!chkZip.Checked) { 
+                    txtOutputEncr.Text = inputPath.Substring(0, inputPath.Length - ext.Length) 
+                        + "_encrypted" + ext + ".encrypted";
+                }
+                else
+                {
+                    txtOutputEncr.Text = inputPath.Substring(0, inputPath.Length - ext.Length)
+                        + "_encrypted" + ext + ".zip.encrypted";
+                }
             }
         }
 
@@ -358,6 +387,8 @@ namespace AdvancedFileEncryption
             
         }
 
+
+        
         private void btnExecEncr_Click(object sender, EventArgs e)
         {
             CipherMode mode = (CipherMode)Enum.Parse(typeof(CipherMode), cbModeEncr.Text);
@@ -380,7 +411,11 @@ namespace AdvancedFileEncryption
                 return;
 
             }
-
+            if (chkZip.Checked)
+            {
+                crypto.ZipFileBeforeEncr(txtInputEncr.Text, txtInputEncr.Text + ".zip");
+                inputFile = txtInputEncr.Text + ".zip";
+            }
             byte[] plainData = File.ReadAllBytes(inputFile);
             byte[] encryptedByte = crypto.Encrypt(cbEmailList.Text, plainData, 
                 key, iv, mode, padding, blockSize, keySize);
@@ -425,6 +460,10 @@ namespace AdvancedFileEncryption
                 String ext = Path.GetExtension(inputPath);
                 txtOutputDecr.Text = inputPath.Substring(0, inputPath.Length - ext.Length);
                 txtOutputDecr.Text = txtOutputDecr.Text.Replace("encrypted", "decrypted");
+                if (txtOutputDecr.Text.Contains(".zip"))
+                {
+                    txtOutputDecr.Text = txtOutputDecr.Text.Replace(".zip", "");
+                }
             }
         }
 
@@ -454,7 +493,26 @@ namespace AdvancedFileEncryption
             }
             try
             {
-                File.WriteAllBytes(txtOutputDecr.Text, decryptData);
+                if (txtInputDecr.Text.Contains(".zip") 
+                    && txtInputDecr.Text.Contains("encrypted"))
+                {
+                    File.WriteAllBytes(txtOutputDecr.Text + ".zip", decryptData);
+                    FileInfo info = new FileInfo(txtOutputDecr.Text + ".zip");
+                    using (FileStream zipFile = info.OpenRead())
+                    {
+                        using (FileStream unzipFileStream = File.Create(txtOutputDecr.Text))
+                        {
+                            using (GZipStream unzipStream = new GZipStream(zipFile, CompressionMode.Decompress))
+                            {
+                                unzipStream.CopyTo(unzipFileStream);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    File.WriteAllBytes(txtOutputDecr.Text, decryptData);
+                }
             }
             catch (Exception error)
             {
@@ -550,12 +608,20 @@ namespace AdvancedFileEncryption
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Are you sure to log out?", "Logout", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Are you sure to exit?", "Logout",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void cbPaddingEncr_SelectedIndexChanged(object sender, EventArgs e)
@@ -591,6 +657,7 @@ namespace AdvancedFileEncryption
                 btnGenNewPass.Enabled = true;
             }
         }
+
 
     }
 }

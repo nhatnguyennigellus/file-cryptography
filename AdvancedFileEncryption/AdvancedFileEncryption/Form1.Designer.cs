@@ -40,7 +40,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 33);
+            this.label1.Location = new System.Drawing.Point(99, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 0;
@@ -49,7 +49,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 65);
+            this.label2.Location = new System.Drawing.Point(69, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(125, 30);
+            this.txtEmail.Location = new System.Drawing.Point(147, 41);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(197, 20);
             this.txtEmail.TabIndex = 0;
@@ -65,7 +65,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(125, 62);
+            this.txtPass.Location = new System.Drawing.Point(147, 73);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(100, 20);
@@ -74,22 +74,25 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(107, 128);
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnLogin.Location = new System.Drawing.Point(97, 128);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(75, 34);
             this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // btnToRegister
             // 
-            this.btnToRegister.Location = new System.Drawing.Point(222, 128);
+            this.btnToRegister.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnToRegister.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnToRegister.Location = new System.Drawing.Point(229, 128);
             this.btnToRegister.Name = "btnToRegister";
-            this.btnToRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnToRegister.Size = new System.Drawing.Size(75, 34);
             this.btnToRegister.TabIndex = 3;
             this.btnToRegister.Text = "Register";
-            this.btnToRegister.UseVisualStyleBackColor = true;
+            this.btnToRegister.UseVisualStyleBackColor = false;
             this.btnToRegister.Click += new System.EventHandler(this.btnToRegister_Click);
             // 
             // Form1
@@ -103,7 +106,9 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.ResumeLayout(false);
             this.PerformLayout();

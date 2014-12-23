@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -40,8 +41,29 @@ namespace AdvancedFileEncryption
             {
                 throw;
             }
+        }
 
+        public void ZipFileBeforeEncr(string input, string output)
+        {
+            try
+            {
 
+                using (FileStream target = new FileStream
+                    (output, FileMode.Create, FileAccess.Write))
+                {
+                    using (GZipStream alg = new GZipStream(target, CompressionMode.Compress))
+                    {
+                        byte[] data = File.ReadAllBytes(input);
+                        alg.Write(data, 0, data.Length);
+                        alg.Flush();
+                    }
+                }
+                MessageBox.Show("Zipped File successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         public byte[] Encrypt(string email, byte[] plainData, byte[] key, byte[] iv, 
