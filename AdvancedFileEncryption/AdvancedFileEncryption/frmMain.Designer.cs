@@ -660,7 +660,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.Goldenrod;
-            this.label23.Location = new System.Drawing.Point(195, 13);
+            this.label23.Location = new System.Drawing.Point(146, 13);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(242, 26);
             this.label23.TabIndex = 11;
@@ -1110,7 +1110,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label26.Location = new System.Drawing.Point(172, 13);
+            this.label26.Location = new System.Drawing.Point(168, 13);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(203, 26);
             this.label26.TabIndex = 13;

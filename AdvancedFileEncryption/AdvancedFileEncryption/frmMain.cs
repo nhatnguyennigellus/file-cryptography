@@ -45,7 +45,10 @@ namespace AdvancedFileEncryption
         {
             foreach (string email in acc.getEmailList())
             {
-                cbEmailList.Items.Add(email);
+                if (email != acc.Email)
+                {
+                    cbEmailList.Items.Add(email);                     
+                }
             }
             cbEmailList.SelectedIndex = 0;
         }
@@ -115,12 +118,15 @@ namespace AdvancedFileEncryption
                 if (updateAcc.editProfile())
                 {
                     acc = updateAcc;
-                    MessageBox.Show("Successfully!");
+                    MessageBox.Show("Updated successfully!", "Edit Profile",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
                     fillFields();
+                    txtCfmPass.Clear();
                 }
                 else
                 {
-                    MessageBox.Show("Failed!");
+                    MessageBox.Show("Failed!", "Edit Profile",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -140,7 +146,7 @@ namespace AdvancedFileEncryption
         {
             if (txtOldPass.Text == "")
             {
-                MessageBox.Show("Please enter your current passphrase!", "Edit Profile",
+                MessageBox.Show("Please enter your current passphrase!", "Change Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtOldPass.Focus();
                 return;
@@ -148,7 +154,7 @@ namespace AdvancedFileEncryption
 
             if (txtOldPass.Text.Length < 6)
             {
-                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Passphrase",
+                MessageBox.Show("Passphrase must be more than 6 characters!", "Change Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtOldPass.Focus();
                 return;
@@ -156,7 +162,7 @@ namespace AdvancedFileEncryption
 
             if (txtNewPass.Text == "")
             {
-                MessageBox.Show("Please enter your new passphrase!", "Edit Passphrase",
+                MessageBox.Show("Please enter your new passphrase!", "Change Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNewPass.Focus();
                 return;
@@ -164,7 +170,7 @@ namespace AdvancedFileEncryption
 
             if (txtNewPass.Text.Length < 6)
             {
-                MessageBox.Show("Passphrase must be more than 6 characters!", "Edit Passphrase",
+                MessageBox.Show("Passphrase must be more than 6 characters!", "Change Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtNewPass.Focus();
                 return;
@@ -172,8 +178,10 @@ namespace AdvancedFileEncryption
 
             if (txtRepPass.Text != txtNewPass.Text)
             {
-                MessageBox.Show("Passphrases mismatch!", "Edit Passphrase",
+                MessageBox.Show("Passphrases mismatch!", "Change Passphrase",
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtRepPass.Focus();
+                return;
             }
 
             if (acc.isAuthenticated(acc.Email, txtOldPass.Text))
@@ -182,9 +190,19 @@ namespace AdvancedFileEncryption
                 {
                     if(chkEnbGenPass.Checked)
                         acc.sendNewPassphraseViaEmail(txtNewPass.Text);
-                    MessageBox.Show("Passphrase changed and sent successfully!", 
-                        "Edit Profile",
+                    if (chkEnbGenPass.Checked)
+                    {
+                        MessageBox.Show("Passphrase changed and sent successfully!",
+                        "Change passphrase",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Passphrase changed successfully!", 
+                            "Change passphrase",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtOldPass.Clear();
+                    txtNewPass.Clear();
+                    txtRepPass.Clear();
                 }
 
             }
@@ -225,6 +243,7 @@ namespace AdvancedFileEncryption
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             importKeyInfoDialog1.Title = "Import key info";
+            importKeyInfoDialog1.Filter = "XML File (*.xml) | *.xml";
 
             DialogResult dlgRes = importKeyInfoDialog1.ShowDialog();
             if (dlgRes == DialogResult.OK)
@@ -232,6 +251,7 @@ namespace AdvancedFileEncryption
                 if (acc.import(importKeyInfoDialog1.FileName))
                 {
                     MessageBox.Show("Imported successfully!");
+                    cbEmailList.Items.Clear();
                     addEmailListToCb();
                 }
                 else
@@ -267,6 +287,7 @@ namespace AdvancedFileEncryption
         private void btnChooseFileEncr_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Choose file to encrypt";
+            openFileDialog1.Filter = "All files (*.*) | *.*";
             DialogResult dlgRes = openFileDialog1.ShowDialog();
             if (dlgRes == DialogResult.OK)
             {
@@ -308,7 +329,7 @@ namespace AdvancedFileEncryption
             string modeSelected = cbModeEncr.Text;
             if (modeSelected == "OFB" || modeSelected == "CTS")
             {
-                MessageBox.Show("Mode" + modeSelected + " not yet supported!", 
+                MessageBox.Show("Mode " + modeSelected + " not yet supported!", 
                     "Mode of operation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cbModeEncr.SelectedIndex = 0;
             }
@@ -524,6 +545,7 @@ namespace AdvancedFileEncryption
         private void btnChooseFileSign_Click(object sender, EventArgs e)
         {
             openFileDialog1.Title = "Choose file to sign";
+            openFileDialog1.Filter = "All file (*.*) | *.*";
             DialogResult dlgRes = openFileDialog1.ShowDialog();
             if (dlgRes == DialogResult.OK)
             {

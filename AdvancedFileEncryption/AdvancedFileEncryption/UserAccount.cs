@@ -473,7 +473,7 @@ namespace AdvancedFileEncryption
                 mail.Subject = "[Advanced File Cryptography] File sent from "
                     + this.Email.Substring(0, this.Email.IndexOf('@'));
                 mail.Body = "This is the encrypted file! "
-                 + "Use your private key to decrypt! <br/> Enjoy!" ;
+                 + "Use your private key to decrypt! Enjoy!" ;
 
                 Attachment attachment;
                 attachment = new Attachment(filePath);
@@ -503,8 +503,7 @@ namespace AdvancedFileEncryption
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 mail.From = new MailAddress("icecreamweb2013@gmail.com");
                 mail.To.Add(this.Email);
-                mail.Subject = "[Advanced File Cryptography] File sent from "
-                    + this.Email.Substring(0, this.Email.IndexOf('@'));
+                mail.Subject = "[Advanced File Cryptography] New generated passphrase";
                 mail.Body = "Your new passphrase is " + passphrase;
 
                 SmtpServer.Port = 587;

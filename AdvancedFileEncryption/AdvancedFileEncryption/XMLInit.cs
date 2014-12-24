@@ -9,7 +9,7 @@ namespace AdvancedFileEncryption
 {
     class XMLInit
     {
-        static string FileName = @"../../UserAccount.xml";
+        static string FileName = "UserAccount.xml";
 
         public string GetFileName()
         {
